@@ -19,23 +19,29 @@ namespace RankingUpdate
             this.secondTeamScore = secondTeamScore;
         }
 
-        public int GetTeamPointsAfterGame(Team team)
+        public int GetFirstTeamPointsAfterGame(Team team)
         {
             if (firstTeamScore > secondTeamScore) return team.AddPoints(3);
             else if (firstTeamScore == secondTeamScore) return team.AddPoints(1);
             else return team.GetPointsFromPrint();
         }
+        public int GetSecondTeamPointsAfterGame(Team team)
+        {
+            if (firstTeamScore < secondTeamScore) return team.AddPoints(3);
+            else if (firstTeamScore == secondTeamScore) return team.AddPoints(1);
+            else return team.GetPointsFromPrint();
+        }
 
-    
+
 
         public Team GetFirstUpdatedTeam()
         {
-            return new Team(firstTeam.GetNameFromPrint(), GetTeamPointsAfterGame(firstTeam));
+            return new Team(firstTeam.GetNameFromPrint(), GetFirstTeamPointsAfterGame(firstTeam));
         }
 
         public Team GetSecondUpdatedTeam()
         {
-            return new Team(secondTeam.GetNameFromPrint(), GetTeamPointsAfterGame(secondTeam));
+            return new Team(secondTeam.GetNameFromPrint(), GetSecondTeamPointsAfterGame(secondTeam));
         }
 
     }

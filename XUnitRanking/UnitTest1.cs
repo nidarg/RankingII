@@ -60,7 +60,7 @@ namespace XUnitRanking
             Team firstTeam = new Team(firstTeamName, firstTeamPoints);
             Team secondTeam = new Team(secondTeamName, secondTeamPoints);
             Game game = new Game(firstTeam, secondTeam, firstScore, secondScore);
-            int actual = game.GetTeamPointsAfterGame(firstTeam);
+            int actual = game.GetFirstTeamPointsAfterGame(firstTeam);
             Assert.Equal(expected, actual);
         }
 
@@ -102,5 +102,52 @@ namespace XUnitRanking
             string[] actual = r.PrintAll();
             Assert.Equal(expected, actual);
         }
+
+
+        [Theory]
+        [InlineData("FCSB", 32, "CFR", 30, "Dinamo", 29, 2, 0, new[] { "FCSB 35", "CFR 30", "Dinamo 29" })]
+        public void TestUpdateRankingFirstTeamWinNoSort(string firstName, int firstPoints, string secondName, int secondPoints, string thirdName, int thirdPoints, int firstScore, int secondScore, string[] expected)
+        {
+            Team firstTeam = new Team(firstName, firstPoints);
+            Team secondTeam = new Team(secondName, secondPoints);
+            Team thirdTeam = new Team(thirdName, thirdPoints);
+            Team[] rankingTeams = new Team[] { firstTeam, secondTeam, thirdTeam };
+            Ranking ranking = new Ranking(rankingTeams);
+            Game game = new Game(firstTeam, secondTeam, firstScore, secondScore);
+            ranking.UpdateRanking(game);
+            string[] actual = ranking.PrintAll();
+            Assert.Equal(expected, actual);
+         
+        }
+
+        [Theory]
+        [InlineData("FCSB", 32, "CFR", 30, "Dinamo", 29, 0, 2, new[] { "CFR 33", "FCSB 32", "Dinamo 29" })]
+        public void TestUpdateRankingSecondTeamWinAndSort(string firstName, int firstPoints, string secondName, int secondPoints, string thirdName, int thirdPoints, int firstScore, int secondScore, string[] expected)
+        {
+            Team firstTeam = new Team(firstName, firstPoints);
+            Team secondTeam = new Team(secondName, secondPoints);
+            Team thirdTeam = new Team(thirdName, thirdPoints);
+            Team[] rankingTeams = new Team[] { firstTeam, secondTeam, thirdTeam };
+            Ranking ranking = new Ranking(rankingTeams);
+            Game game = new Game(firstTeam, secondTeam, firstScore, secondScore);
+            ranking.UpdateRanking(game);
+            string[] actual = ranking.PrintAll();
+            Assert.Equal(expected, actual);
+
+        }
+
+        //[Theory]
+        //[InlineData("FCSB", 32, "CFR", 30, "Dinamo", 29, new[] {  "CFR 30", "FCSB 32", "Dinamo 29" })]
+        //public void TestSwapTeams(string firstName, int firstPoints, string secondName, int secondPoints, string thirdName, int thirdPoints, string[] expected)
+        //{
+        //    Team firstTeam = new Team(firstName, firstPoints);
+        //    Team secondTeam = new Team(secondName, secondPoints);
+        //    Team thirdTeam = new Team(thirdName, thirdPoints);
+        //    Team[] rankingTeams = new Team[] { firstTeam, secondTeam, thirdTeam };
+        //    Ranking r = new Ranking(rankingTeams);
+        //    r.Swap(ref firstTeam, ref secondTeam);
+        //    string[] actual = r.PrintAll();
+        //    Assert.Equal(expected, actual);
+        //}
     }
 }

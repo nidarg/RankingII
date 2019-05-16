@@ -26,6 +26,8 @@ namespace RankingUpdate
             else return team.GetPointsFromPrint();
         }
 
+    
+
         public Team GetFirstUpdatedTeam()
         {
             return new Team(firstTeam.GetNameFromPrint(), GetTeamPointsAfterGame(firstTeam));

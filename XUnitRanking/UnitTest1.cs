@@ -89,5 +89,18 @@ namespace XUnitRanking
             string actual = secondTeamUpdated.PrintTeam();
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData("FCSB", 32, "CFR", 30, "Dinamo", 29, new [] {"FCSB 32", "CFR 30", "Dinamo 29" })]
+        public void TestPrintAll(string firstName, int firstPoints, string secondName, int secondPoints, string thirdName, int thirdPoints,  string[] expected)
+        {
+            Team firstTeam = new Team(firstName, firstPoints);
+            Team secondTeam = new Team(secondName, secondPoints);
+            Team thirdTeam = new Team(thirdName, thirdPoints);
+            Team[] rankingTeams = new Team[] { firstTeam, secondTeam, thirdTeam };
+            Ranking r = new Ranking(rankingTeams);
+            string[] actual = r.PrintAll();
+            Assert.Equal(expected, actual);
+        }
     }
 }

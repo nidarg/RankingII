@@ -42,5 +42,10 @@ namespace RankingUpdate
             return Convert.ToInt32(team[1]);
         }
 
+        public int AddPoints(int pointsAfterGame)
+        {
+            return this.points + pointsAfterGame;
+        }
+
     }
 }

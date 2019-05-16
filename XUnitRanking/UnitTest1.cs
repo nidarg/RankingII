@@ -52,5 +52,16 @@ namespace XUnitRanking
             int actual = team.GetPointsFromPrint();
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData("FCSB", 30,"CFR",31,3,1, 33)]
+        public void TestGetFirstTeamPointsAfterGame(string firstTeamName, int firstTeamPoints,string secondTeamName,int secondTeamPoints,int firstScore,int secondScore, int expected)
+        {
+            Team firstTeam = new Team(firstTeamName, firstTeamPoints);
+            Team secondTeam = new Team(secondTeamName, secondTeamPoints);
+            Game game = new Game(firstTeam, secondTeam, firstScore, secondScore);
+            int actual = game.GetTeamPointsAfterGame(firstTeam);
+            Assert.Equal(expected, actual);
+        }
     }
 }

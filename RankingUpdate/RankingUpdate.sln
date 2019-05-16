@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RankingUpdate", "RankingUpdate\RankingUpdate.csproj", "{5DC791FA-285F-44BE-BAE0-358432B20160}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitRanking", "..\XUnitRanking\XUnitRanking.csproj", "{BC41F151-8292-4C80-B10F-EB8B769B4FDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DC791FA-285F-44BE-BAE0-358432B20160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC791FA-285F-44BE-BAE0-358432B20160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC791FA-285F-44BE-BAE0-358432B20160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC791FA-285F-44BE-BAE0-358432B20160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC41F151-8292-4C80-B10F-EB8B769B4FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC41F151-8292-4C80-B10F-EB8B769B4FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC41F151-8292-4C80-B10F-EB8B769B4FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC41F151-8292-4C80-B10F-EB8B769B4FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38F2FE73-92EB-4105-BD47-7CE011336053}
+	EndGlobalSection
+EndGlobal

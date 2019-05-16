@@ -24,5 +24,33 @@ namespace XUnitRanking
             bool actual = firstTeam.CompareTeamsNames(secondTeam);
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData("FCSB", 30, "CFR", 32, false)]
+        public void TestCompareTeamsPoints(string firstTeamName, int firstTeamPoints, string secondTeamName, int secondTeamPoints, bool expected)
+        {
+            Team firstTeam = new Team(firstTeamName, firstTeamPoints);
+            Team secondTeam = new Team(secondTeamName, secondTeamPoints);
+            bool actual = firstTeam.CompareTeamsNames(secondTeam);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("FCSB", 30, "FCSB")]
+        public void TestGetNameFromPrint(string teamName, int teamPoints, string expected)
+        {
+            Team team = new Team(teamName, teamPoints);
+            string actual = team.GetNameFromPrint();
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("FCSB", 30, 30)]
+        public void TestGetPointsFromPrint(string teamName, int teamPoints, int expected)
+        {
+            Team team = new Team(teamName, teamPoints);
+            int actual = team.GetPointsFromPrint();
+            Assert.Equal(expected, actual);
+        }
     }
 }

@@ -25,7 +25,22 @@ namespace RankingUpdate
             return this.name == team.name;
         }
 
+        public bool CompareTeamsPoints(Team team)
+        {
+            return this.points > team.points;
+        }
 
+        public string GetNameFromPrint()
+        {
+            string[] team = this.PrintTeam().Split(" ");
+            return team[0];
+        }
+
+        public int GetPointsFromPrint()
+        {
+            string[] team = this.PrintTeam().Split(" ");
+            return Convert.ToInt32(team[1]);
+        }
 
     }
 }

@@ -58,5 +58,13 @@ namespace RankingUpdate
             }
             return allTeams;
         }
+
+        public void PrintAllToConsole()
+        {
+            foreach (Team team in teams)
+            {
+                Console.WriteLine(team.PrintTeam());
+            }
+        }
     }
 }
